@@ -1,0 +1,6 @@
+/* Global base styles for Vistara Tech */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
