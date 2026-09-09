@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
 
       <div className="flex flex-col md:flex-row justify-between items-end md:items-center border-t border-white/10 pt-12 mt-auto z-10">
         <div className="flex items-center gap-3">
-          <Logo size={24} showText={false} variant="interlock" />
+          <Logo size={28} showText={false} />
           <p className="text-sm text-gray-400 font-mono">© {new Date().getFullYear()} Vistara Tech. All rights reserved.</p>
         </div>
         <div className="flex items-center gap-2 text-sm text-gray-500 mt-4 md:mt-0">

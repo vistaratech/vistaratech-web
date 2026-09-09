@@ -1,141 +1,129 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface LogoProps {
   className?: string;
   size?: number;
   showText?: boolean;
-  variant?: 'interlock' | 'prism' | 'minimal';
 }
 
 export const Logo: React.FC<LogoProps> = ({
   className = '',
-  size = 40,
-  showText = true,
-  variant = 'interlock'
+  size = 42,
+  showText = true
 }) => {
   return (
-    <div className={`flex items-center gap-3 select-none group cursor-pointer ${className}`}>
-      {/* SVG Emblem */}
+    <div className={`flex items-center gap-3.5 select-none group cursor-pointer ${className}`}>
+      {/* Premium Glass Container with Ambient Glow */}
       <div 
-        className="relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+        className="relative flex items-center justify-center rounded-xl p-1.5 transition-all duration-500 group-hover:scale-105"
         style={{ width: size, height: size }}
       >
-        {/* Ambient Glow */}
+        {/* Pulsing Ambient Halo */}
         <div 
-          className="absolute inset-0 rounded-full blur-md opacity-40 group-hover:opacity-75 transition-opacity duration-300 pointer-events-none"
+          className="absolute -inset-1 rounded-2xl opacity-50 group-hover:opacity-100 blur-lg transition-all duration-700 pointer-events-none"
           style={{
-            background: 'radial-gradient(circle, rgba(0,229,255,0.6) 0%, rgba(59,130,246,0.3) 60%, transparent 80%)'
+            background: 'radial-gradient(circle, rgba(0, 240, 255, 0.45) 0%, rgba(99, 102, 241, 0.3) 50%, transparent 75%)'
           }}
         />
 
-        {variant === 'interlock' && (
-          <svg
-            viewBox="0 0 100 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full relative z-10 drop-shadow-[0_2px_12px_rgba(0,229,255,0.4)]"
-          >
-            <defs>
-              <linearGradient id="vt-teal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#00F5D4" />
-                <stop offset="100%" stopColor="#00BBF9" />
-              </linearGradient>
-              <linearGradient id="vt-blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#2563EB" />
-                <stop offset="100%" stopColor="#1D4ED8" />
-              </linearGradient>
-              <linearGradient id="vt-glow" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#38BDF8" />
-                <stop offset="100%" stopColor="#818CF8" />
-              </linearGradient>
-            </defs>
+        {/* Outer Glass Card Accent */}
+        <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 to-white/[0.02] border border-white/15 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] group-hover:border-cyan-400/50 transition-colors duration-500" />
 
-            {/* Left Cyan / Teal Hex Ribbon */}
-            <path
-              d="M50 15L24 30V62L36 69V37L50 29L64 37V47H76V30L50 15Z"
-              fill="url(#vt-teal-grad)"
-            />
+        {/* Vector Emblem */}
+        <svg
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full relative z-10 transition-transform duration-500 group-hover:rotate-3"
+        >
+          <defs>
+            {/* Cyan to Electric Blue Gradient */}
+            <linearGradient id="v-cyan-grad" x1="8" y1="12" x2="32" y2="52" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#00F0FF" />
+              <stop offset="50%" stopColor="#00B4D8" />
+              <stop offset="100%" stopColor="#0077B6" />
+            </linearGradient>
 
-            {/* Right Blue Interlocking Ribbon (forming checkmark & shield loop) */}
-            <path
-              d="M50 85L76 70V38L64 31V63L50 71L36 63V53H24V70L50 85Z"
-              fill="url(#vt-blue-grad)"
-            />
+            {/* Indigo to Purple Gradient */}
+            <linearGradient id="v-purple-grad" x1="56" y1="12" x2="32" y2="52" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#A855F7" />
+              <stop offset="50%" stopColor="#6366F1" />
+              <stop offset="100%" stopColor="#3B82F6" />
+            </linearGradient>
 
-            {/* Dynamic Center Check / Node Accent */}
-            <path
-              d="M44 52L49 57L62 44"
-              stroke="#FFFFFF"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]"
-            />
-          </svg>
-        )}
+            {/* Inner Core Gradient */}
+            <linearGradient id="v-core-grad" x1="20" y1="20" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="100%" stopColor="#00F0FF" />
+            </linearGradient>
 
-        {variant === 'prism' && (
-          <svg
-            viewBox="0 0 100 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full relative z-10 drop-shadow-[0_2px_12px_rgba(0,229,255,0.4)]"
-          >
-            <defs>
-              <linearGradient id="prism-left" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#00F5D4" />
-                <stop offset="100%" stopColor="#0284C7" />
-              </linearGradient>
-              <linearGradient id="prism-right" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#38BDF8" />
-                <stop offset="100%" stopColor="#2563EB" />
-              </linearGradient>
-            </defs>
-            {/* Left wing of 3D Prism V */}
-            <path d="M18 24L50 82L42 82L14 36L18 24Z" fill="url(#prism-left)" />
-            <path d="M18 24L38 34L46 72L50 82L18 24Z" fill="#00F5D4" fillOpacity="0.85" />
-            
-            {/* Right wing of 3D Prism V */}
-            <path d="M82 24L50 82L58 82L86 36L82 24Z" fill="url(#prism-right)" />
-            <path d="M82 24L62 34L54 72L50 82L82 24Z" fill="#38BDF8" fillOpacity="0.9" />
-          </svg>
-        )}
+            {/* Drop Shadow Filter */}
+            <filter id="v-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#00F0FF" floodOpacity="0.4" />
+            </filter>
+          </defs>
 
-        {variant === 'minimal' && (
-          <svg
-            viewBox="0 0 100 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full relative z-10 drop-shadow-[0_2px_12px_rgba(0,229,255,0.4)]"
-          >
-            <defs>
-              <linearGradient id="min-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#00F5D4" />
-                <stop offset="50%" stopColor="#0EA5E9" />
-                <stop offset="100%" stopColor="#3B82F6" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M20 28L50 78L80 28H66L50 56L34 28H20Z"
-              fill="url(#min-grad)"
-            />
-            <circle cx="50" cy="24" r="4" fill="#00F5D4" />
-          </svg>
-        )}
+          {/* Background Dimensional Polygon (Isometric depth plate) */}
+          <polygon
+            points="32,6 54,18 54,46 32,58 10,46 10,18"
+            fill="url(#v-cyan-grad)"
+            fillOpacity="0.08"
+            stroke="url(#v-cyan-grad)"
+            strokeWidth="1"
+            strokeOpacity="0.3"
+            strokeDasharray="3 3"
+          />
+
+          {/* Left Dynamic Wing of 'V' */}
+          <path
+            d="M 14 18 C 14 16, 17 15, 19 18 L 32 46 C 32 46, 30 49, 27 48 L 14 22 C 13 20, 13 19, 14 18 Z"
+            fill="url(#v-cyan-grad)"
+            filter="url(#v-shadow)"
+          />
+
+          {/* Right Dynamic Wing of 'V' (Interlocking Overlap) */}
+          <path
+            d="M 50 18 C 50 16, 47 15, 45 18 L 32 46 C 32 46, 34 49, 37 48 L 50 22 C 51 20, 51 19, 50 18 Z"
+            fill="url(#v-purple-grad)"
+          />
+
+          {/* Central Connecting Diamond / Next Dimension Portal */}
+          <polygon
+            points="32,24 39,34 32,44 25,34"
+            fill="url(#v-core-grad)"
+            fillOpacity="0.9"
+            className="group-hover:scale-110 transition-transform duration-300 origin-center"
+          />
+
+          {/* Glowing Center Core Pulse */}
+          <circle cx="32" cy="34" r="3" fill="#FFFFFF" />
+          <circle cx="32" cy="34" r="6" stroke="#00F0FF" strokeWidth="1.5" strokeOpacity="0.8" className="animate-pulse" />
+        </svg>
       </div>
 
-      {/* Brand Typography */}
+      {/* Modern High-End Typography */}
       {showText && (
-        <div className="flex flex-col leading-none">
-          <div className="flex items-center text-2xl font-display font-extrabold tracking-tight text-white group-hover:text-white transition-colors">
-            VISTARA
-            <span className="ml-1.5 text-xs uppercase px-1.5 py-0.5 rounded font-mono font-bold tracking-wider bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 border border-cyan-500/30">
+        <div className="flex flex-col">
+          <div className="flex items-center gap-1.5 leading-none">
+            <span className="text-xl md:text-2xl font-display font-extrabold tracking-[-0.03em] text-white group-hover:text-cyan-50 transition-colors">
+              VISTARA
+            </span>
+            <span className="text-xl md:text-2xl font-display font-bold tracking-[-0.03em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400">
               TECH
             </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#00F0FF] animate-pulse" />
           </div>
-          <span className="text-[9px] font-mono tracking-[0.25em] text-gray-400 uppercase mt-0.5 group-hover:text-cyan-400 transition-colors">
-            SOFTWARE & INNOVATION
-          </span>
+
+          <div className="flex items-center gap-2 mt-1">
+            <span className="text-[9px] font-mono font-medium tracking-[0.22em] text-gray-400 uppercase group-hover:text-cyan-300/80 transition-colors">
+              NEXT DIMENSION
+            </span>
+            <span className="w-1 h-1 rounded-full bg-white/20" />
+            <span className="text-[9px] font-mono tracking-[0.18em] text-cyan-400/80 uppercase">
+              STUDIO
+            </span>
+          </div>
         </div>
       )}
     </div>

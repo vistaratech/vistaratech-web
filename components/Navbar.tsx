@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
       >
         <div className="pointer-events-auto">
           <a href="#">
-            <Logo size={42} variant="interlock" />
+            <Logo size={44} />
           </a>
         </div>
 
