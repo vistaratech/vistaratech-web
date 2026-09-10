@@ -41,22 +41,22 @@ export const Logo: React.FC<LogoProps> = ({
       {/* Modern High-End Typography */}
       {showText && (
         <div className="flex flex-col">
-          <div className="flex items-center gap-1.5 leading-none">
-            <span className="text-xl md:text-2xl font-display font-extrabold tracking-[-0.03em] text-white group-hover:text-cyan-50 transition-colors">
+          <div className="flex items-center gap-2 leading-none">
+            <span className="text-lg md:text-xl font-brand font-bold tracking-wider text-white group-hover:text-cyan-50 transition-colors">
               VISTARA
             </span>
-            <span className="text-xl md:text-2xl font-display font-bold tracking-[-0.03em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400">
+            <span className="text-lg md:text-xl font-brand font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400">
               TECH
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#00F0FF] animate-pulse" />
           </div>
 
-          <div className="flex items-center gap-2 mt-1">
-            <span className="text-[9px] font-mono font-medium tracking-[0.22em] text-gray-400 uppercase group-hover:text-cyan-300/80 transition-colors">
+          <div className="flex items-center gap-2 mt-1.5">
+            <span className="text-[8px] md:text-[9px] font-mono font-medium tracking-[0.25em] text-gray-400 uppercase group-hover:text-cyan-300/80 transition-colors">
               NEXT DIMENSION
             </span>
             <span className="w-1 h-1 rounded-full bg-white/20" />
-            <span className="text-[9px] font-mono tracking-[0.18em] text-cyan-400/80 uppercase">
+            <span className="text-[8px] md:text-[9px] font-mono tracking-[0.2em] text-cyan-400/80 uppercase">
               STUDIO
             </span>
           </div>
